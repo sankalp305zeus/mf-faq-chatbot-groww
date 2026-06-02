@@ -74,9 +74,9 @@ Investors on Groww ask the same factual questions repeatedly about HDFC MF schem
 | Milestone | Status |
 |---|---|
 | Source collection — verified URL list | ✅ Done (`data/source-list.md`) |
-| FAQ rules — answer format and refusal logic | ✅ Done (CONVENTIONS.md + this file) |
-| Sample Q&A — 20+ pairs across 4 schemes | 🔲 Next |
-| Prototype UI — basic chatbot interface | 🔲 Upcoming |
+| FAQ rules — answer format and refusal logic | ✅ Done (`prototype/faq-rules.md`) |
+| Sample Q&A — 20+ pairs across 4 schemes | 🔶 In progress (`sample-qa/sample-questions.md` — 10 pairs, v1) |
+| Prototype UI — basic chatbot interface | ✅ Done (`prototype/app.py`) |
 
 ## Assumptions (unvalidated)
 <!-- AI: treat everything here as uncertain, not confirmed fact. -->
