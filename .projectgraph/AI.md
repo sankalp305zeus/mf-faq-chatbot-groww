@@ -8,8 +8,8 @@
 | When | Files to load |
 |---|---|
 | Every session | `CONTEXT.md` + `CONVENTIONS.md` |
-| Complex tasks | + `STATE.md` + `RESEARCH.md` (Active section only) |
-| Arch / tech decisions | + last 3–5 files in `log/` |
+| Complex tasks | + `STATE.md` + `RESEARCH.md` (Active only) |
+| Arch / data decisions | + last 3 files in `log/` |
 | Never auto-load | `CAPTURE.md` — unprocessed inbox |
 
 ---
@@ -20,9 +20,9 @@ Paste into **Project Instructions**:
 
 ```
 Before every response, read .projectgraph/CONTEXT.md and .projectgraph/CONVENTIONS.md.
-For architecture or tech decisions, also read the 3 most recent files in .projectgraph/log/.
-Treat anything under CONTEXT.md "Assumptions" as unvalidated — say so when relevant.
-If STATE.md shows any file unreviewed >30 days, flag it.
+This is a facts-only mutual fund FAQ chatbot for HDFC MF schemes on Groww.
+Never give investment advice. Never fabricate scheme data — return [DATA MISSING] instead.
+Treat anything under CONTEXT.md "Assumptions" as unvalidated.
 Never use .projectgraph/CAPTURE.md as context.
 ```
 
@@ -30,14 +30,14 @@ Never use .projectgraph/CAPTURE.md as context.
 
 ## Claude Code
 
-Add to `CLAUDE.md` at the project root:
+Add to `CLAUDE.md` at project root:
 
 ```
 @file .projectgraph/CONTEXT.md
 @file .projectgraph/CONVENTIONS.md
 
 Follow all conventions in CONVENTIONS.md exactly.
-For architecture decisions, check .projectgraph/log/ before proposing changes.
+For data or architecture decisions, check .projectgraph/log/ before proposing changes.
 Treat CONTEXT.md "Assumptions" as unvalidated.
 ```
 
@@ -57,45 +57,22 @@ Treat CONTEXT.md "Assumptions" as unvalidated.
 
 ## ChatGPT
 
-**Option A — Custom Instructions (persistent across sessions):**
+**Option A — Custom Instructions:**
 ```
-I maintain a .projectgraph/ folder for my projects.
-When I share CONTEXT.md, treat it as authoritative project context.
-Treat any "Assumptions" section as unvalidated beliefs, not confirmed facts.
+I am building a facts-only FAQ chatbot for HDFC Mutual Fund schemes on Groww.
+When I share CONTEXT.md, treat it as authoritative. Never give investment advice.
+Treat "Assumptions" sections as unvalidated beliefs, not confirmed facts.
 ```
 
-**Option B — Per session:** Upload `CONTEXT.md` and `CONVENTIONS.md` at session start.
+**Option B — Per session:** Upload `CONTEXT.md` + `CONVENTIONS.md` at session start.
 
 ---
 
 ## Gemini
 
-Load the 5 core files at session start, then open with:
+Load core files at session start, then open with:
 ```
 I've attached my project context files. Read them before responding.
-Treat "Assumptions" sections as unvalidated.
-```
-
----
-
-## Global defaults (optional)
-
-Create `~/.projectgraph/GLOBAL.md` for personal conventions that apply across all your projects:
-
-```markdown
-# Global Conventions
-
-## Personal tech stack defaults
--
-
-## Decisions already made across projects
--
-
-## Research that applies across projects
--
-```
-
-Then add this to any AI tool config:
-```
-Also read ~/.projectgraph/GLOBAL.md for personal defaults before making recommendations.
+This is a facts-only MF FAQ chatbot. Never give investment advice.
+Treat "Assumptions" as unvalidated.
 ```

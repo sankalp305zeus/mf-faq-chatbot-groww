@@ -1,31 +1,43 @@
 # Project Context
 
 <!-- AI: read this file first. It is the authoritative project identity. -->
-<!-- REQUIRED fields must be filled before using AI assistance. -->
-<!-- OPTIONAL fields improve AI output but are not blocking. -->
 
-## Identity <!-- REQUIRED -->
-- **Name:** [Project name]
-- **Slug:** [short-id — e.g. acme-crm]
-- **One-liner:** [What this does in 15 words or fewer]
-- **Type:** [product | research | experiment | internal-tool]
-- **Stage:** [idea | prototype | mvp | growth | mature]
+## Identity
+- **Name:** MF FAQ Chatbot
+- **Slug:** mf-faq-chatbot-groww
+- **One-liner:** Facts-only FAQ assistant for mutual fund scheme questions on Groww
+- **Product:** Groww
+- **AMC:** HDFC Mutual Fund
+- **Type:** product
+- **Stage:** prototype
 
-## Problem <!-- REQUIRED — max 40 words -->
-[Who has what pain? Why does it matter now?]
+## Problem
+Investors on Groww ask repetitive questions about HDFC MF schemes (NAV, returns, risk, lock-in, exit load). Support teams spend time answering questions that have clear, documented answers.
 
-## Solution <!-- REQUIRED — max 40 words -->
-[What does this do about it? What does it NOT do?]
+## Solution
+A chatbot that answers scheme-specific FAQs using only verified factual data. It does not give investment advice. It does not hallucinate or guess.
 
-## Users <!-- OPTIONAL — max 40 words -->
-[Primary persona only. What do they care about most?]
+## Users
+Retail mutual fund investors on Groww. They want quick, accurate answers about specific schemes — not generic financial advice.
 
-## Architecture <!-- OPTIONAL — bullets only, max 6 items -->
-- [Key technology or system boundary]
+## Scope
+- **In scope:** Scheme facts (NAV, returns, category, risk, lock-in, exit load, fund manager)
+- **Out of scope:** Investment advice, portfolio recommendations, real-time pricing
 
-## Constraints <!-- OPTIONAL — bullets only, max 4 items -->
-- [Hard limit: budget, timeline, regulatory, team size]
+## Architecture
+- Input: user question (natural language)
+- Data source: curated FAQ dataset (sample-qa/) + scheme data (data/)
+- Output: plain-text factual answer with source reference
+- No live API calls in prototype phase
 
-## Assumptions (unvalidated) <!-- OPTIONAL -->
-<!-- AI: treat everything in this section as uncertain, not confirmed fact. -->
-- [Belief not yet validated by evidence]
+## Constraints
+- Facts only — no opinions, predictions, or advice
+- Answers must cite the data source
+- HDFC MF schemes only (v1)
+- No user data stored
+
+## Assumptions (unvalidated)
+<!-- AI: treat everything here as uncertain, not confirmed fact. -->
+- Users prefer short answers over detailed explanations
+- Most questions fall into 5-8 repeatable categories
+- A curated FAQ dataset is sufficient for prototype accuracy

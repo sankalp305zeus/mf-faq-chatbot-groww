@@ -1,22 +1,28 @@
 # Conventions
 
-<!-- Rules only. Prescriptive: "always do X" or "never do Y". -->
-<!-- This is the source of truth. AI tool configs load this file — they do not duplicate it. -->
-<!-- Delete any section that doesn't apply to your project. -->
+<!-- Rules only. Source of truth for AI behaviour on this project. -->
 
-## Technical
-- [e.g. Always use TypeScript strict mode]
-- [e.g. No external dependencies without a logged decision in log/]
+## Content rules
+- Answers must be facts only — no opinions, predictions, or investment advice
+- Every answer must cite its data source (file name or field name)
+- Do not use hedging language like "it depends" without explaining what it depends on
 
-## Output & communication
-- [e.g. Always respond in plain English, no jargon]
-- [e.g. Code examples must be complete and runnable]
+## Data rules
+- All scheme data must come from verified sources (HDFC MF website, AMFI, Groww scheme page)
+- No estimated or inferred data — mark any gap as [DATA MISSING]
+- Dataset files live in data/ — do not embed data inline in code
+
+## Output format
+- Answers: 1–3 sentences max
+- If a question is out of scope, say: "This chatbot answers factual questions about HDFC MF schemes only."
+- Never say "I think" or "I believe"
 
 ## Process
-- [e.g. No new feature work while a P0 bug is open]
-- [e.g. All decisions over X impact get a log/ entry]
+- New scheme categories require a log/ entry before adding to scope
+- Q&A pairs in sample-qa/ must be reviewed before using as training data
 
 ## AI must never do on this project
-<!-- Hard stops. These override any other instruction. -->
-- [e.g. Never suggest a third-party analytics SDK]
-- [e.g. Never commit directly to main]
+- Give investment advice or recommendations
+- Answer questions about non-HDFC MF schemes (v1)
+- Fabricate scheme data — return [DATA MISSING] instead
+- Store or repeat any user-provided personal information
